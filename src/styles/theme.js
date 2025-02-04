@@ -90,3 +90,35 @@ export const Logo = styled.img`
     }
   }
 `;
+
+export const CodeBlock = styled.pre`
+  background-color: #111;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+  border: 1px solid #333;
+
+  code {
+    color: #e6e6e6;
+  }
+
+  .keyword {
+    color: #c678dd;
+  }
+
+  .function {
+    color: #61afef;
+  }
+
+  .string {
+    color: #98c379;
+  }
+
+  .comment {
+    color: #5c6370;
+  }
+`;
