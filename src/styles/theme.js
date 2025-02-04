@@ -68,3 +68,25 @@ export const ExampleContainer = styled.div`
   padding: 2rem;
   margin: 1rem 0;
 `;
+
+export const Header = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+`;
+
+export const Logo = styled.img`
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  animation: spin 10s linear infinite;
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
