@@ -1,5 +1,5 @@
 import { createContext, use, useState } from 'react';
-import { Container, ExampleContainer } from '@/styles/theme';
+import { Container, ExampleContainer, CodeBlock } from '@/styles/theme';
 import { BackButton } from '@/components/BackButton';
 
 const ThemeContext = createContext('light');
@@ -11,6 +11,27 @@ function ThemeDisplay() {
 
 function UseContextExample() {
   const [theme, setTheme] = useState('light');
+  const codeExample = `
+// You can also read context with use, allowing you to read Context conditionally such as after early returns:
+
+import {use} from 'react';
+import ThemeContext from './ThemeContext'
+
+function Heading({children}) {
+  if (children == null) {
+    return null;
+  }
+  
+  // This would not work with useContext
+  // because of the early return.
+  const theme = use(ThemeContext);
+  return (
+    <h1 style={{color: theme.color}}>
+      {children}
+    </h1>
+  );
+}
+`;
 
   return (
     <Container>
@@ -26,6 +47,9 @@ function UseContextExample() {
           </button>
         </ThemeContext.Provider>
       </ExampleContainer>
+      <CodeBlock>
+        <code>{codeExample}</code>
+      </CodeBlock>
     </Container>
   );
 }
