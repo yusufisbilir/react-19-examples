@@ -1,6 +1,6 @@
 import { useState, useTransition } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Container, BackButton, ExampleContainer } from '../styles/theme';
+import { Container, ExampleContainer } from '@/styles/theme';
+import { BackButton } from '@/components/BackButton';
 
 function slowOperation(text) {
   const items = [];
@@ -11,7 +11,6 @@ function slowOperation(text) {
 }
 
 function UseTransitionExample() {
-  const navigate = useNavigate();
   const [isPending, startTransition] = useTransition();
   const [text, setText] = useState('');
   const [items, setItems] = useState([]);
@@ -27,7 +26,7 @@ function UseTransitionExample() {
 
   return (
     <Container>
-      <BackButton onClick={() => navigate('/')}>Back to Home</BackButton>
+      <BackButton />
       <h1>useTransition Example</h1>
       <ExampleContainer>
         <div style={{ marginBottom: '1rem' }}>

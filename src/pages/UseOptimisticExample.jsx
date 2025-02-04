@@ -1,9 +1,8 @@
 import { useState, useOptimistic } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Container, BackButton, ExampleContainer } from '../styles/theme';
+import { Container, ExampleContainer } from '@/styles/theme';
+import { BackButton } from '@/components/BackButton';
 
 function UseOptimisticExample() {
-  const navigate = useNavigate();
   const [todos, setTodos] = useState(['Learn React', 'Learn Next.js']);
   const [optimisticTodos, addOptimisticTodo] = useOptimistic(
     todos,
@@ -25,7 +24,7 @@ function UseOptimisticExample() {
 
   return (
     <Container>
-      <BackButton onClick={() => navigate('/')}>Back to Home</BackButton>
+      <BackButton />
       <h1>useOptimistic Example</h1>
       <ExampleContainer>
         <form onSubmit={handleSubmit}>

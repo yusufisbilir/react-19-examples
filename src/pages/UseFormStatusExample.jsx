@@ -1,6 +1,6 @@
 import { useFormStatus } from 'react-dom';
-import { useNavigate } from 'react-router-dom';
-import { Container, BackButton, ExampleContainer } from '../styles/theme';
+import { Container, ExampleContainer } from '@/styles/theme';
+import { BackButton } from '@/components/BackButton';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -23,15 +23,13 @@ function SubmitButton() {
 }
 
 function UseFormStatusExample() {
-  const navigate = useNavigate();
-
   async function formAction() {
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
 
   return (
     <Container>
-      <BackButton onClick={() => navigate('/')}>Back to Home</BackButton>
+      <BackButton />
       <h1>useFormStatus Example</h1>
       <ExampleContainer>
         <form action={formAction}>

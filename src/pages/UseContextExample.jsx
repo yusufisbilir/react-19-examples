@@ -1,6 +1,6 @@
 import { createContext, use, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Container, BackButton, ExampleContainer } from '../styles/theme';
+import { Container, ExampleContainer } from '@/styles/theme';
+import { BackButton } from '@/components/BackButton';
 
 const ThemeContext = createContext('light');
 
@@ -10,12 +10,11 @@ function ThemeDisplay() {
 }
 
 function UseContextExample() {
-  const navigate = useNavigate();
   const [theme, setTheme] = useState('light');
 
   return (
     <Container>
-      <BackButton onClick={() => navigate('/')}>Back to Home</BackButton>
+      <BackButton />
       <h1>use(context) Example</h1>
       <ExampleContainer>
         <ThemeContext.Provider value={theme}>

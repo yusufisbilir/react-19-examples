@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
-import { Container, BackButton, ExampleContainer } from '../styles/theme';
+import { Container, ExampleContainer } from '@/styles/theme';
+import { BackButton } from '@/components/BackButton';
 
 async function submitForm(formData) {
   const name = formData.get('name');
@@ -8,11 +8,9 @@ async function submitForm(formData) {
 }
 
 function FormActionExample() {
-  const navigate = useNavigate();
-
   return (
     <Container>
-      <BackButton onClick={() => navigate('/')}>Back to Home</BackButton>
+      <BackButton />
       <h1>Form Action Example</h1>
       <ExampleContainer>
         <form

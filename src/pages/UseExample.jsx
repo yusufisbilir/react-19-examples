@@ -1,6 +1,6 @@
 import { use } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Container, BackButton, ExampleContainer } from '../styles/theme';
+import { Container, ExampleContainer } from '@/styles/theme';
+import { BackButton } from '@/components/BackButton';
 
 const promise = new Promise((resolve) => {
   setTimeout(() => {
@@ -9,12 +9,11 @@ const promise = new Promise((resolve) => {
 });
 
 function UseExample() {
-  const navigate = useNavigate();
   const message = use(promise);
 
   return (
     <Container>
-      <BackButton onClick={() => navigate('/')}>Back to Home</BackButton>
+      <BackButton />
       <h1>use Hook Example</h1>
       <ExampleContainer>
         <p>Message from Promise: {message}</p>

@@ -1,6 +1,6 @@
 import { useFormState } from 'react-dom';
-import { useNavigate } from 'react-router-dom';
-import { Container, BackButton, ExampleContainer } from '../styles/theme';
+import { Container, ExampleContainer } from '@/styles/theme';
+import { BackButton } from '@/components/BackButton';
 
 async function formAction(prevState, formData) {
   const count = formData.get('count');
@@ -9,12 +9,11 @@ async function formAction(prevState, formData) {
 }
 
 function UseFormStateExample() {
-  const navigate = useNavigate();
   const [state, formAction2] = useFormState(formAction, 0);
 
   return (
     <Container>
-      <BackButton onClick={() => navigate('/')}>Back to Home</BackButton>
+      <BackButton />
       <h1>useFormState Example</h1>
       <ExampleContainer>
         <p>Current count: {state}</p>
