@@ -6,13 +6,13 @@ import UseFormStatusExample from '../pages/UseFormStatusExample';
 import UseOptimisticExample from '../pages/UseOptimisticExample';
 import UseTransitionExample from '../pages/UseTransitionExample';
 
-interface Feature {
+type Route = {
   name: string;
   path: string;
   element: React.ComponentType;
-}
+};
 
-export const features: Feature[] = [
+export const routes: Route[] = [
   { name: 'use', path: '/use', element: UseExample },
   { name: 'use(context)', path: '/use-context', element: UseContextExample },
   { name: 'form action', path: '/form-action', element: FormActionExample },
