@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Container, Grid, FeatureCard } from '../styles/theme';
-import { features } from '../data/features';
+import { features } from '../utils/features';
 
 function Home() {
   const navigate = useNavigate();

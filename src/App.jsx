@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import { Global } from '@emotion/react';
 import { globalStyles } from './styles/theme';
-import { features } from './data/features';
+import { features } from './utils/features';
 
 function App() {
   return (
