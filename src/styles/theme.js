@@ -122,3 +122,52 @@ export const CodeBlock = styled.pre`
     color: #5c6370;
   }
 `;
+
+export const Input = styled.input`
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  background-color: #333;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: white;
+`;
+
+export const FormGroup = styled.div`
+  margin-bottom: 1rem;
+`;
+
+export const Button = styled.button`
+  background-color: ${(props) => (props.disabled ? '#666' : '#444')};
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: white;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+
+  &:hover:not(:disabled) {
+    background-color: #555;
+  }
+`;
+
+export const List = styled.ul`
+  margin-top: 1rem;
+`;
+
+export const ListItem = styled.li`
+  margin-bottom: 0.5rem;
+`;
+
+export const ScrollableList = styled.ul`
+  height: 200px;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: #222;
+  border-radius: 4px;
+`;
+
+export const UserDataContainer = styled.div`
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+`;

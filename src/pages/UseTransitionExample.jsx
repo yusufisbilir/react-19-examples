@@ -1,5 +1,13 @@
 import { useState, useTransition } from 'react';
-import { Container, ExampleContainer, CodeBlock } from '@/styles/theme';
+import {
+  Container,
+  ExampleContainer,
+  CodeBlock,
+  Input,
+  FormGroup,
+  ScrollableList,
+  ListItem,
+} from '@/styles/theme';
 import { BackButton } from '@/components/BackButton';
 
 function slowOperation(text) {
@@ -96,41 +104,18 @@ function TabContainer() {
       <BackButton />
       <h1>useTransition Example</h1>
       <ExampleContainer>
-        <div style={{ marginBottom: '1rem' }}>
+        <FormGroup>
           <label htmlFor='search'>Search: </label>
-          <input
-            type='text'
-            id='search'
-            value={text}
-            onChange={handleChange}
-            style={{
-              padding: '0.5rem',
-              marginLeft: '0.5rem',
-              backgroundColor: '#333',
-              border: '1px solid #444',
-              borderRadius: '4px',
-              color: 'white',
-            }}
-          />
-        </div>
+          <Input type='text' id='search' value={text} onChange={handleChange} />
+        </FormGroup>
         {isPending ? (
           <p>Loading...</p>
         ) : (
-          <ul
-            style={{
-              height: '200px',
-              overflowY: 'auto',
-              padding: '1rem',
-              backgroundColor: '#222',
-              borderRadius: '4px',
-            }}
-          >
+          <ScrollableList>
             {items.map((item, index) => (
-              <li key={index} style={{ marginBottom: '0.5rem' }}>
-                {item}
-              </li>
+              <ListItem key={index}>{item}</ListItem>
             ))}
-          </ul>
+          </ScrollableList>
         )}
         <CodeBlock>
           <code>{codeExample}</code>

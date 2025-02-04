@@ -1,5 +1,12 @@
 import { useFormState } from 'react-dom';
-import { Container, ExampleContainer, CodeBlock } from '@/styles/theme';
+import {
+  Container,
+  ExampleContainer,
+  CodeBlock,
+  Button,
+  Input,
+  FormGroup,
+} from '@/styles/theme';
 import { BackButton } from '@/components/BackButton';
 
 async function formAction(prevState, formData) {
@@ -58,36 +65,11 @@ function SearchResults() {
       <ExampleContainer>
         <p>Current count: {state}</p>
         <form action={formAction2}>
-          <div style={{ marginBottom: '1rem' }}>
+          <FormGroup>
             <label htmlFor='count'>Add number: </label>
-            <input
-              type='number'
-              id='count'
-              name='count'
-              defaultValue={1}
-              style={{
-                padding: '0.5rem',
-                marginLeft: '0.5rem',
-                backgroundColor: '#333',
-                border: '1px solid #444',
-                borderRadius: '4px',
-                color: 'white',
-              }}
-            />
-          </div>
-          <button
-            type='submit'
-            style={{
-              backgroundColor: '#444',
-              border: 'none',
-              padding: '0.5rem 1rem',
-              borderRadius: '4px',
-              color: 'white',
-              cursor: 'pointer',
-            }}
-          >
-            Add
-          </button>
+            <Input type='number' id='count' name='count' defaultValue={1} />
+          </FormGroup>
+          <Button type='submit'>Add</Button>
         </form>
         <CodeBlock>
           <code>{codeExample}</code>

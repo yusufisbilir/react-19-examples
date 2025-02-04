@@ -1,5 +1,10 @@
 import { use } from 'react';
-import { Container, ExampleContainer, CodeBlock } from '@/styles/theme';
+import {
+  Container,
+  ExampleContainer,
+  CodeBlock,
+  UserDataContainer,
+} from '@/styles/theme';
 import { BackButton } from '@/components/BackButton';
 
 const promise = new Promise((resolve) => {
@@ -17,7 +22,6 @@ function UseExample() {
   const userData = use(fetchUserPromise);
   const codeExample = `
 // For example, you can read a promise with use, and React will Suspend until the promise resolves:
-
 
 import { use } from 'react';
 
@@ -59,19 +63,12 @@ function UserProfile() {
       <h1>use Hook Example</h1>
       <ExampleContainer>
         <p>Message from Promise: {message}</p>
-        <div
-          style={{
-            marginTop: '20px',
-            padding: '15px',
-            backgroundColor: '#2a2a2a',
-            borderRadius: '8px',
-          }}
-        >
+        <UserDataContainer>
           <h3>Fetched User Data:</h3>
           <p>Name: {userData.name}</p>
           <p>Email: {userData.email}</p>
           <p>Company: {userData.company.name}</p>
-        </div>
+        </UserDataContainer>
         <CodeBlock>
           <code>{codeExample}</code>
         </CodeBlock>

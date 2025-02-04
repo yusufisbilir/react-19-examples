@@ -1,5 +1,14 @@
 import { useState, useOptimistic } from 'react';
-import { Container, ExampleContainer, CodeBlock } from '@/styles/theme';
+import {
+  Container,
+  ExampleContainer,
+  CodeBlock,
+  Button,
+  Input,
+  FormGroup,
+  List,
+  ListItem,
+} from '@/styles/theme';
 import { BackButton } from '@/components/BackButton';
 
 function UseOptimisticExample() {
@@ -88,44 +97,17 @@ function Post({ post }) {
       <h1>useOptimistic Example</h1>
       <ExampleContainer>
         <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: '1rem' }}>
+          <FormGroup>
             <label htmlFor='todo'>New Todo: </label>
-            <input
-              type='text'
-              id='todo'
-              name='todo'
-              required
-              style={{
-                padding: '0.5rem',
-                marginLeft: '0.5rem',
-                backgroundColor: '#333',
-                border: '1px solid #444',
-                borderRadius: '4px',
-                color: 'white',
-              }}
-            />
-          </div>
-          <button
-            type='submit'
-            style={{
-              backgroundColor: '#444',
-              border: 'none',
-              padding: '0.5rem 1rem',
-              borderRadius: '4px',
-              color: 'white',
-              cursor: 'pointer',
-            }}
-          >
-            Add Todo
-          </button>
+            <Input type='text' id='todo' name='todo' required />
+          </FormGroup>
+          <Button type='submit'>Add Todo</Button>
         </form>
-        <ul style={{ marginTop: '1rem' }}>
+        <List>
           {optimisticTodos.map((todo, index) => (
-            <li key={index} style={{ marginBottom: '0.5rem' }}>
-              {todo}
-            </li>
+            <ListItem key={index}>{todo}</ListItem>
           ))}
-        </ul>
+        </List>
         <CodeBlock>
           <code>{codeExample}</code>
         </CodeBlock>
