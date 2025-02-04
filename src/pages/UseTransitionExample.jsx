@@ -1,5 +1,5 @@
 import { useState, useTransition } from 'react';
-import { Container, ExampleContainer } from '@/styles/theme';
+import { Container, ExampleContainer, CodeBlock } from '@/styles/theme';
 import { BackButton } from '@/components/BackButton';
 
 function slowOperation(text) {
@@ -14,6 +14,73 @@ function UseTransitionExample() {
   const [isPending, startTransition] = useTransition();
   const [text, setText] = useState('');
   const [items, setItems] = useState([]);
+
+  const codeExample = `
+// useTransition lets you mark UI updates as transitions to avoid blocking the UI:
+
+function SearchResults() {
+  const [isPending, startTransition] = useTransition();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [results, setResults] = useState([]);
+
+  function handleSearch(e) {
+    // Update the input immediately
+    setSearchQuery(e.target.value);
+
+    // Mark the search results update as a transition
+    startTransition(() => {
+      // This update is non-urgent and can be interrupted
+      const searchResults = performExpensiveSearch(e.target.value);
+      setResults(searchResults);
+    });
+  }
+
+  return (
+    <div>
+      <input value={searchQuery} onChange={handleSearch} />
+      {isPending ? (
+        <div>Loading...</div>
+      ) : (
+        <ul>
+          {results.map(result => (
+            <li key={result.id}>{result.title}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+// Another example with tab switching:
+function TabContainer() {
+  const [isPending, startTransition] = useTransition();
+  const [tab, setTab] = useState('home');
+
+  function selectTab(nextTab) {
+    startTransition(() => {
+      setTab(nextTab);
+    });
+  }
+
+  return (
+    <div>
+      <TabButton 
+        isActive={tab === 'home'}
+        onClick={() => selectTab('home')}
+      >
+        Home
+      </TabButton>
+      <TabButton 
+        isActive={tab === 'posts'}
+        onClick={() => selectTab('posts')}
+      >
+        Posts (Slow)
+      </TabButton>
+      {isPending && <Spinner />}
+      <TabPanel tab={tab} />
+    </div>
+  );
+}`;
 
   function handleChange(e) {
     const value = e.target.value;
@@ -65,6 +132,9 @@ function UseTransitionExample() {
             ))}
           </ul>
         )}
+        <CodeBlock>
+          <code>{codeExample}</code>
+        </CodeBlock>
       </ExampleContainer>
     </Container>
   );

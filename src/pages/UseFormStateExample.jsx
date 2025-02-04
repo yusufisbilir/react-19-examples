@@ -1,5 +1,5 @@
 import { useFormState } from 'react-dom';
-import { Container, ExampleContainer } from '@/styles/theme';
+import { Container, ExampleContainer, CodeBlock } from '@/styles/theme';
 import { BackButton } from '@/components/BackButton';
 
 async function formAction(prevState, formData) {
@@ -10,6 +10,46 @@ async function formAction(prevState, formData) {
 
 function UseFormStateExample() {
   const [state, formAction2] = useFormState(formAction, 0);
+  const codeExample = `
+// useFormState lets you update state based on the result of a form action:
+
+'use client';
+
+async function increment(previousState, formData) {
+  return previousState + 1;
+}
+
+function Counter() {
+  const [count, formAction] = useFormState(increment, 0);
+  return (
+    <form action={formAction}>
+      Count: {count}
+      <button type="submit">Increment</button>
+    </form>
+  );
+}
+
+// You can also use it with server actions:
+function SearchResults() {
+  const [results, formAction] = useFormState(async (prev, formData) => {
+    'use server';
+    const query = formData.get('query');
+    const results = await searchAPI(query);
+    return results;
+  }, []);
+
+  return (
+    <form action={formAction}>
+      <input name="query" />
+      <button type="submit">Search</button>
+      <ul>
+        {results.map(result => (
+          <li key={result.id}>{result.title}</li>
+        ))}
+      </ul>
+    </form>
+  );
+}`;
 
   return (
     <Container>
@@ -49,6 +89,9 @@ function UseFormStateExample() {
             Add
           </button>
         </form>
+        <CodeBlock>
+          <code>{codeExample}</code>
+        </CodeBlock>
       </ExampleContainer>
     </Container>
   );
