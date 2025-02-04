@@ -1,8 +1,10 @@
-# React + Vite
+# React Examples Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project showcases various examples of React features and hooks, including:
 
-Currently, two official plugins are available:
+1. **Optimistic Updates**: Demonstrates how to use `useOptimistic` to show optimistic UI updates before an action completes.
+2. **Using Promises**: Illustrates how to use the `use` hook to read promises and handle suspensions.
+3. **Form Status**: Utilizes `useFormStatus` to provide status information about a parent `<form>`.
+4. **Transitions**: Explores the use of `useTransition` to mark UI updates as transitions to avoid blocking the UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Live Demo**: [https://react-19-examples-six.vercel.app/](https://react-19-examples-six.vercel.app/)
